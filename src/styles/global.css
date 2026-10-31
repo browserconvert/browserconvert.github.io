@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-obsidian: #000000;
+  --color-ruby: #CB2957;
+  --color-ruby-hover: #b5234d;
+  --color-silver: #DDDDDD;
+  --color-alabaster: #EEEEEE;
+
+  /* Light mode defaults */
+  --bg-primary: #EEEEEE;
+  --bg-surface-card: #FFFFFF;
+  --workspace-box-bg: #FFFFFF;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --primary-action-btn: #CB2957;
+  --primary-action-hover: #000000;
+  --secondary-pill: #DDDDDD;
+  --border-color: #DDDDDD;
+}
+
+.dark {
+  /* Dark mode defaults */
+  --bg-primary: #000000;
+  --bg-surface-card: #121212;
+  --workspace-box-bg: #0A0A0A;
+  --text-primary: #EEEEEE;
+  --text-secondary: #DDDDDD;
+  --primary-action-btn: #CB2957;
+  --primary-action-hover: #E03565;
+  --secondary-pill: #1E1E1E;
+  --border-color: #2A2A2A;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ruby);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(203, 41, 87, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(203, 41, 87, 0.55);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes progressStripe {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.animate-stripes {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progressStripe 1s linear infinite;
+}
+
+/* Looping Animation for 1-Click Format Swap */
+@keyframes swapIconLoop {
+  0%, 70%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  75% {
+    transform: rotate(-20deg) scale(1.12);
+  }
+  85% {
+    transform: rotate(185deg) scale(1.2);
+  }
+  92% {
+    transform: rotate(365deg) scale(1.06);
+  }
+  96% {
+    transform: rotate(358deg) scale(1.02);
+  }
+}
+
+@keyframes swapButtonGlow {
+  0%, 70%, 100% {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border-color: var(--border-color);
+  }
+  82% {
+    box-shadow: 0 0 16px rgba(203, 41, 87, 0.45);
+    border-color: var(--color-ruby);
+  }
+}
+
+.animate-swap-loop {
+  animation: swapIconLoop 3.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-swap-pulse {
+  animation: swapButtonGlow 3.8s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-swap-loop,
+  .animate-swap-pulse {
+    animation: none !important;
+  }
+}
+

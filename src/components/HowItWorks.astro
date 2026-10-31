@@ -1,0 +1,62 @@
+---
+import { useTranslations, type SupportedLanguage } from '../i18n/ui';
+
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+---
+
+<section class="w-full py-16 px-4 sm:px-6 lg:px-8 border-t border-silver dark:border-obsidian-border bg-white dark:bg-obsidian-card transition-colors">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-obsidian dark:text-white tracking-tight mb-3">
+        {t('howTitle')}
+      </h2>
+      <div class="w-16 h-1.5 bg-ruby mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Step 1 */}
+      <div class="flex flex-col items-center text-center p-6 rounded-3xl bg-alabaster/60 dark:bg-obsidian-box border border-silver dark:border-obsidian-border">
+        <div class="w-14 h-14 rounded-2xl bg-ruby/10 border border-ruby/30 text-ruby flex items-center justify-center font-black text-xl mb-4">
+          1
+        </div>
+        <h3 class="text-lg font-black text-obsidian dark:text-white mb-2">
+          {t('step1Title')}
+        </h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {t('step1Desc')}
+        </p>
+      </div>
+
+      {/* Step 2 */}
+      <div class="flex flex-col items-center text-center p-6 rounded-3xl bg-alabaster/60 dark:bg-obsidian-box border border-silver dark:border-obsidian-border">
+        <div class="w-14 h-14 rounded-2xl bg-ruby/10 border border-ruby/30 text-ruby flex items-center justify-center font-black text-xl mb-4">
+          2
+        </div>
+        <h3 class="text-lg font-black text-obsidian dark:text-white mb-2">
+          {t('step2Title')}
+        </h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {t('step2Desc')}
+        </p>
+      </div>
+
+      {/* Step 3 */}
+      <div class="flex flex-col items-center text-center p-6 rounded-3xl bg-alabaster/60 dark:bg-obsidian-box border border-silver dark:border-obsidian-border">
+        <div class="w-14 h-14 rounded-2xl bg-ruby/10 border border-ruby/30 text-ruby flex items-center justify-center font-black text-xl mb-4">
+          3
+        </div>
+        <h3 class="text-lg font-black text-obsidian dark:text-white mb-2">
+          {t('step3Title')}
+        </h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {t('step3Desc')}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

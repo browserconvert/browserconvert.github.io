@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="50%" stop-color="#0a0a0a" />
+      <stop offset="100%" stop-color="#15080c" />
+    </linearGradient>
+    <linearGradient id="rubyGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CB2957" />
+      <stop offset="100%" stop-color="#E03565" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#CB2957" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Geometric accent lines -->
+  <circle cx="1050" cy="150" r="320" fill="none" stroke="#CB2957" stroke-width="1.5" opacity="0.15" />
+  <circle cx="1050" cy="150" r="220" fill="none" stroke="#CB2957" stroke-width="1.5" opacity="0.25" />
+
+  <!-- Center Card -->
+  <rect x="80" y="80" width="1040" height="470" rx="32" fill="#121212" stroke="#2A2A2A" stroke-width="2" />
+
+  <!-- Top Badge -->
+  <rect x="140" y="130" width="460" height="40" rx="20" fill="rgba(203, 41, 87, 0.15)" stroke="rgba(203, 41, 87, 0.4)" stroke-width="1.5" />
+  <text x="165" y="156" fill="#CB2957" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" letter-spacing="1">
+    100% CLIENT-SIDE • ZERO CLOUD UPLOADS • INFINITE PRIVACY
+  </text>
+
+  <!-- Brand Title -->
+  <text x="140" y="240" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="900" letter-spacing="-1">
+    Browser<tspan fill="url(#rubyGlow)">Convert</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="140" y="300" fill="#DDDDDD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="600">
+    Universal Local File Converter (Video, Audio, PDF, HEIC, Images)
+  </text>
+
+  <text x="140" y="340" fill="#888888" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400">
+    Converts MP4 to MP3, MOV to MP4, PDF to Word, HEIC to JPG &amp; HTML to PDF 100% in browser RAM.
+  </text>
+
+  <!-- Feature Pills -->
+  <g transform="translate(140, 390)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="220" height="50" rx="16" fill="#1E1E1E" stroke="#333333" stroke-width="1" />
+    <text x="110" y="31" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">✓ Unlimited File Size</text>
+
+    <!-- Pill 2 -->
+    <rect x="240" y="0" width="220" height="50" rx="16" fill="#1E1E1E" stroke="#333333" stroke-width="1" />
+    <text x="350" y="31" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">✓ 100% Offline (PWA)</text>
+
+    <!-- Pill 3 -->
+    <rect x="480" y="0" width="220" height="50" rx="16" fill="url(#rubyGlow)" filter="url(#shadow)" />
+    <text x="590" y="31" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">✓ Zero Cloud Storage</text>
+  </g>
+
+  <!-- Giant Logo Icon on Right -->
+  <g transform="translate(860, 200)">
+    <rect width="180" height="180" rx="40" fill="#000000" stroke="#CB2957" stroke-width="3" filter="url(#shadow)" />
+    <path d="M90 40L140 65L90 90L40 65L90 40Z" fill="#CB2957"/>
+    <path d="M40 86L90 111L140 86" stroke="#CB2957" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M40 112L90 137L140 112" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Bottom URL -->
+  <text x="140" y="505" fill="#666666" font-family="monospace" font-size="16">
+    https://browserconvert.github.io/
+  </text>
+</svg>

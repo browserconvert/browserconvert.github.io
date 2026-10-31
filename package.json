@@ -1,0 +1,48 @@
+{
+  "name": "browserconvert.github.io",
+  "version": "1.0.0",
+  "description": "BrowserConvert — Universal Local File Converter (100% Client-Side)",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browserconvert/browserconvert.github.io.git"
+  },
+  "keywords": [
+    "converter",
+    "client-side",
+    "wasm",
+    "ffmpeg",
+    "pdf",
+    "privacy"
+  ],
+  "author": "Kishara",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/react": "^7.1.2",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/tailwind": "^6.0.2",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.4.4",
+    "canvas-confetti": "^1.9.4",
+    "docx": "^9.15.0",
+    "heic2any": "^0.0.4",
+    "lucide-react": "^1.65.0",
+    "mammoth": "^1.13.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^3.4.19",
+    "xlsx": "^0.18.5"
+  }
+}

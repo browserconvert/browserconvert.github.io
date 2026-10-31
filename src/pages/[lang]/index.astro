@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ConverterWorkspace } from '../../components/ConverterWorkspace';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
+import { PopularConversions } from '../../components/PopularConversions';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import Features from '../../components/Features.astro';
+import Faq from '../../components/Faq.astro';
+import { languages, type SupportedLanguage } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  const nonDefaultLangs = (Object.keys(languages) as SupportedLanguage[]).filter((l) => l !== 'en');
+  return nonDefaultLangs.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+---
+
+<Layout currentLang={lang}>
+  {/* First fold: 100dvh dedicated to the Universal Converter Box */}
+  <section class="w-full flex-1 flex flex-col justify-center">
+    <ConverterWorkspace client:load currentLang={lang} />
+  </section>
+
+  <Breadcrumbs currentLang={lang} />
+  <HowItWorks currentLang={lang} />
+  <PopularConversions client:visible currentLang={lang} />
+  <ComparisonTable currentLang={lang} />
+  <Features currentLang={lang} />
+  <Faq currentLang={lang} />
+</Layout>

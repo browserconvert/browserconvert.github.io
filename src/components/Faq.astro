@@ -1,0 +1,55 @@
+---
+import { useTranslations, type SupportedLanguage, type FaqItem } from '../i18n/ui';
+import { HelpCircle } from 'lucide-react';
+
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+const faqsList: FaqItem[] = t('faqs') || [];
+---
+
+<section
+  id="faq"
+  class="w-full py-16 px-4 sm:px-6 lg:px-8 border-t border-silver dark:border-obsidian-border bg-alabaster dark:bg-obsidian transition-colors"
+  aria-labelledby="faq-heading"
+>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ruby/10 text-ruby text-xs font-bold mb-3">
+        <HelpCircle class="w-4 h-4" />
+        <span>Answers & Technical Clarity</span>
+      </div>
+      <h2 id="faq-heading" class="text-2xl sm:text-3xl md:text-4xl font-black text-obsidian dark:text-white tracking-tight mb-3">
+        {t('faqTitle')}
+      </h2>
+      <div class="w-16 h-1.5 bg-ruby mx-auto rounded-full"></div>
+    </div>
+
+    <div class="space-y-4">
+      {faqsList.map((faq, index) => (
+        <details
+          class="group p-5 rounded-3xl bg-white dark:bg-obsidian-card border border-silver dark:border-obsidian-border shadow-sm transition-all open:ring-2 open:ring-ruby/30"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between cursor-pointer list-none text-base sm:text-lg font-bold text-obsidian dark:text-white group-hover:text-ruby transition-colors focus:outline-none">
+            <span class="flex items-start gap-3">
+              <span class="text-ruby font-black">Q:</span>
+              <span>{faq.question}</span>
+            </span>
+            <span class="ml-4 shrink-0 transition-transform group-open:rotate-180 text-ruby">
+              <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-silver/50 dark:border-obsidian-border/50 text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300 pl-7">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

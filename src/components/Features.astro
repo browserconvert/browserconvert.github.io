@@ -1,0 +1,63 @@
+---
+import { useTranslations, type SupportedLanguage } from '../i18n/ui';
+import { Shield, Zap, Infinity as InfinityIcon } from 'lucide-react';
+
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+---
+
+<section class="w-full py-16 px-4 sm:px-6 lg:px-8 bg-alabaster dark:bg-obsidian transition-colors">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-obsidian dark:text-white tracking-tight mb-3">
+        {t('whyLocalTitle')}
+      </h2>
+      <div class="w-16 h-1.5 bg-ruby mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Feature 1 */}
+      <div class="p-8 rounded-3xl bg-white dark:bg-obsidian-card border border-silver dark:border-obsidian-border shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-2xl bg-ruby text-white flex items-center justify-center mb-5 shadow-ruby-sm">
+          <Shield className="w-6 h-6" />
+        </div>
+        <h3 class="text-xl font-black text-obsidian dark:text-white mb-3">
+          {t('why1Title')}
+        </h3>
+        <p class="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          {t('why1Desc')}
+        </p>
+      </div>
+
+      {/* Feature 2 */}
+      <div class="p-8 rounded-3xl bg-white dark:bg-obsidian-card border border-silver dark:border-obsidian-border shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-2xl bg-ruby text-white flex items-center justify-center mb-5 shadow-ruby-sm">
+          <InfinityIcon className="w-6 h-6" />
+        </div>
+        <h3 class="text-xl font-black text-obsidian dark:text-white mb-3">
+          {t('why2Title')}
+        </h3>
+        <p class="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          {t('why2Desc')}
+        </p>
+      </div>
+
+      {/* Feature 3 */}
+      <div class="p-8 rounded-3xl bg-white dark:bg-obsidian-card border border-silver dark:border-obsidian-border shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-2xl bg-ruby text-white flex items-center justify-center mb-5 shadow-ruby-sm">
+          <Zap className="w-6 h-6" />
+        </div>
+        <h3 class="text-xl font-black text-obsidian dark:text-white mb-3">
+          {t('why3Title')}
+        </h3>
+        <p class="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          {t('why3Desc')}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,165 @@
+---
+import { languages, type SupportedLanguage, getLocalizedPath, useTranslations, type FaqItem } from '../i18n/ui';
+import { Navbar } from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang, title, description } = Astro.props;
+const t = useTranslations(currentLang);
+
+const pageTitle = title || t('seoTitle') || `${t('brand')} — ${t('tagline')}`;
+const pageDesc = description || t('seoDescription') || t('heroSubtitle');
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://browserconvert.github.io').href;
+const homeUrl = `https://browserconvert.github.io${getLocalizedPath('en', currentLang)}`;
+const ogImageUrl = 'https://browserconvert.github.io/og-image.svg';
+
+// JSON-LD Schemas (100% Google Safe Search & Rich Snippet compliant — NO fake ratings/reviews)
+const webAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  'name': 'BrowserConvert — Universal Local File Converter',
+  'url': 'https://browserconvert.github.io/',
+  'description': pageDesc,
+  'applicationCategory': 'UtilitiesApplication, MultimediaApplication',
+  'operatingSystem': 'All',
+  'browserRequirements': 'Requires HTML5 / WebAssembly',
+  'offers': {
+    '@type': 'Offer',
+    'price': '0',
+    'priceCurrency': 'USD',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': t('breadcrumbsHome'),
+      'item': homeUrl,
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': t('breadcrumbsConverter'),
+      'item': canonicalUrl,
+    },
+  ],
+};
+
+const faqsList: FaqItem[] = t('faqs') || [];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqsList.map((faq) => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': faq.answer,
+    },
+  })),
+};
+---
+
+<!DOCTYPE html>
+<html lang={currentLang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <meta name="keywords" content={t('seoKeywords')} />
+    <meta name="author" content="Kishara" />
+    <meta name="robots" content="index, follow" />
+
+    {/* Canonical & Bidirectional Hreflang Matrix */}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href="https://browserconvert.github.io/" />
+    {(Object.keys(languages) as SupportedLanguage[]).map((langKey) => (
+      <link
+        rel="alternate"
+        hreflang={langKey}
+        href={`https://browserconvert.github.io${getLocalizedPath('en', langKey)}`}
+      />
+    ))}
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="BrowserConvert" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="BrowserConvert — Universal Local File Converter" />
+
+    {/* Twitter Cards */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDesc} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {/* Google Analytics tag (gtag.js) */}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKGMC4GRGT"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NKGMC4GRGT');
+    </script>
+
+    {/* Structured Data: JSON-LD Schemas */}
+    <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+    {/* Theme initialization script to prevent FOUC */}
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('bc_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    {/* Web Manifest & Icons */}
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#CB2957" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-alabaster dark:bg-obsidian text-obsidian dark:text-neutral-200 transition-colors">
+    <Navbar client:load currentLang={currentLang} />
+    <main class="flex-1 flex flex-col">
+      <slot />
+    </main>
+    <Footer currentLang={currentLang} />
+
+    {/* PWA Service Worker Registration */}
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err) {
+            console.debug('ServiceWorker registration error:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

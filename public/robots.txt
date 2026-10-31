@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://browserconvert.github.io/sitemap-index.xml

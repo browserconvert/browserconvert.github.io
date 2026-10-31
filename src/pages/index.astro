@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ConverterWorkspace } from '../components/ConverterWorkspace';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import { PopularConversions } from '../components/PopularConversions';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Features from '../components/Features.astro';
+import Faq from '../components/Faq.astro';
+---
+
+<Layout currentLang="en">
+  {/* First fold: 100dvh dedicated to the Universal Converter Box */}
+  <section class="w-full flex-1 flex flex-col justify-center">
+    <ConverterWorkspace client:load currentLang="en" />
+  </section>
+
+  <Breadcrumbs currentLang="en" />
+  <HowItWorks currentLang="en" />
+  <PopularConversions client:visible currentLang="en" />
+  <ComparisonTable currentLang="en" />
+  <Features currentLang="en" />
+  <Faq currentLang="en" />
+</Layout>

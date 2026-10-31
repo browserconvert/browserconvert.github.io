@@ -1,0 +1,168 @@
+---
+import { useTranslations, type SupportedLanguage } from '../i18n/ui';
+import { ShieldCheck, Check, X, AlertTriangle } from 'lucide-react';
+
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+---
+
+<section
+  id="security-comparison"
+  class="w-full py-16 px-4 sm:px-6 lg:px-8 border-t border-silver dark:border-obsidian-border bg-white dark:bg-obsidian-card transition-colors"
+  aria-labelledby="comp-heading"
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ruby/10 text-ruby text-xs font-bold mb-3">
+        <ShieldCheck class="w-4 h-4" />
+        <span>Privacy & Technical Comparison</span>
+      </div>
+      <h2 id="comp-heading" class="text-2xl sm:text-3xl md:text-4xl font-black text-obsidian dark:text-white tracking-tight mb-3">
+        {t('compTitle')}
+      </h2>
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+        {t('compSubtitle')}
+      </p>
+    </div>
+
+    {/* Responsive Table Container */}
+    <div class="w-full overflow-x-auto rounded-3xl border border-silver dark:border-obsidian-border bg-alabaster/40 dark:bg-obsidian-box shadow-sm">
+      <table class="w-full text-left border-collapse min-w-[700px]">
+        <thead>
+          <tr class="border-b border-silver dark:border-obsidian-border bg-alabaster/90 dark:bg-obsidian-pill/50 text-xs uppercase tracking-wider text-neutral-500 font-bold">
+            <th scope="col" class="py-5 px-6">{t('compColFeature')}</th>
+            <th scope="col" class="py-5 px-6 text-ruby bg-ruby/5 dark:bg-ruby/10 font-black">
+              {t('compColBrowserConvert')}
+            </th>
+            <th scope="col" class="py-5 px-6">{t('compColCloudConvert')}</th>
+            <th scope="col" class="py-5 px-6">{t('compColOthers')}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-silver dark:divide-obsidian-border text-sm">
+          {/* Row 1: Privacy & Uploads */}
+          <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors">
+            <th scope="row" class="py-5 px-6 font-bold text-obsidian dark:text-white">
+              {t('compRow1Name')}
+            </th>
+            <td class="py-5 px-6 bg-ruby/5 dark:bg-ruby/10 text-obsidian dark:text-white font-bold">
+              <div class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>{t('compRow1BC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <AlertTriangle class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                <span>{t('compRow1CC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <AlertTriangle class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                <span>{t('compRow1Others')}</span>
+              </div>
+            </td>
+          </tr>
+
+          {/* Row 2: File Size */}
+          <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors">
+            <th scope="row" class="py-5 px-6 font-bold text-obsidian dark:text-white">
+              {t('compRow2Name')}
+            </th>
+            <td class="py-5 px-6 bg-ruby/5 dark:bg-ruby/10 text-obsidian dark:text-white font-bold">
+              <div class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>{t('compRow2BC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow2CC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow2Others')}</span>
+              </div>
+            </td>
+          </tr>
+
+          {/* Row 3: Speed & Queues */}
+          <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors">
+            <th scope="row" class="py-5 px-6 font-bold text-obsidian dark:text-white">
+              {t('compRow3Name')}
+            </th>
+            <td class="py-5 px-6 bg-ruby/5 dark:bg-ruby/10 text-obsidian dark:text-white font-bold">
+              <div class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>{t('compRow3BC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow3CC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow3Others')}</span>
+              </div>
+            </td>
+          </tr>
+
+          {/* Row 4: Offline PWA */}
+          <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors">
+            <th scope="row" class="py-5 px-6 font-bold text-obsidian dark:text-white">
+              {t('compRow4Name')}
+            </th>
+            <td class="py-5 px-6 bg-ruby/5 dark:bg-ruby/10 text-obsidian dark:text-white font-bold">
+              <div class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>{t('compRow4BC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow4CC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <div class="flex items-start gap-2">
+                <X class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>{t('compRow4Others')}</span>
+              </div>
+            </td>
+          </tr>
+
+          {/* Row 5: Price */}
+          <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors">
+            <th scope="row" class="py-5 px-6 font-bold text-obsidian dark:text-white">
+              {t('compRow5Name')}
+            </th>
+            <td class="py-5 px-6 bg-ruby/5 dark:bg-ruby/10 text-ruby font-black">
+              <div class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>{t('compRow5BC')}</span>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <span>{t('compRow5CC')}</span>
+            </td>
+            <td class="py-5 px-6 text-neutral-600 dark:text-neutral-400">
+              <span>{t('compRow5Others')}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

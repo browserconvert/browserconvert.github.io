@@ -1,0 +1,46 @@
+---
+import { getLocalizedPath, useTranslations, type SupportedLanguage } from '../i18n/ui';
+import { ChevronRight, Home } from 'lucide-react';
+
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+
+const homeUrl = getLocalizedPath(currentLang, currentLang);
+---
+
+<nav
+  aria-label="Breadcrumb"
+  class="w-full py-3 px-4 sm:px-6 lg:px-8 border-b border-silver dark:border-obsidian-border bg-white/50 dark:bg-obsidian-card/50 backdrop-blur-sm text-xs font-medium text-neutral-500 dark:text-neutral-400"
+>
+  <div class="max-w-7xl mx-auto flex items-center gap-2">
+    <ol class="flex items-center gap-1.5 list-none m-0 p-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+      {/* Breadcrumb item 1: Home */}
+      <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a
+          href={homeUrl}
+          itemprop="item"
+          class="inline-flex items-center gap-1 text-obsidian dark:text-neutral-200 hover:text-ruby transition-colors"
+        >
+          <Home class="w-3.5 h-3.5 text-ruby" />
+          <span itemprop="name">{t('breadcrumbsHome')}</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+
+      <ChevronRight class="w-3.5 h-3.5 text-neutral-400 shrink-0" aria-hidden="true" />
+
+      {/* Breadcrumb item 2: Converter */}
+      <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name" class="text-ruby font-semibold" aria-current="page">
+          {t('breadcrumbsConverter')}
+        </span>
+        <meta itemprop="item" content={`https://browserconvert.github.io${homeUrl}`} />
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </div>
+</nav>

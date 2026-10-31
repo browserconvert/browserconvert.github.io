@@ -1,0 +1,37 @@
+{
+  "name": "BrowserConvert — Free Local File Converter (100% Offline & Private)",
+  "short_name": "BrowserConvert",
+  "description": "Convert video, audio, PDF, HEIC, Word, and spreadsheets 100% locally in your browser RAM with zero server uploads.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#EEEEEE",
+  "theme_color": "#CB2957",
+  "orientation": "any",
+  "categories": ["utilities", "productivity", "multimedia"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "MP4 to MP3",
+      "url": "/#popular-conversions",
+      "description": "Convert video to MP3 audio locally"
+    },
+    {
+      "name": "PDF to Word",
+      "url": "/#popular-conversions",
+      "description": "Convert PDF documents to Word DOCX"
+    },
+    {
+      "name": "HEIC to JPG",
+      "url": "/#popular-conversions",
+      "description": "Convert iPhone HEIC photos to JPG"
+    }
+  ]
+}
