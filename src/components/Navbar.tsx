@@ -205,13 +205,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang }) => {
             <span>{isInstalled ? t('installed') : t('installApp')}</span>
           </button>
 
-          {/* Support Developer (Ko-fi) */}
+          {/* Support Developer */}
           <a
-            href="https://ko-fi.com/kishara"
+            href="https://kisharadilshan.gumroad.com/coffee"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-ruby hover:bg-ruby-hover text-white text-sm font-bold shadow-ruby-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
-            aria-label="Support the Developer on Ko-fi"
+            aria-label="Support the Developer"
           >
             <Heart className="w-4 h-4 fill-white animate-pulse" />
             <span>{t('supportDev')}</span>
@@ -316,9 +316,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang }) => {
             <span className="text-xs font-semibold text-neutral-400">PWA</span>
           </button>
 
-          {/* Support Developer (Ko-fi) in Mobile Drawer */}
+          {/* Support Developer in Mobile Drawer */}
           <a
-            href="https://ko-fi.com/kishara"
+            href="https://kisharadilshan.gumroad.com/coffee"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-2xl bg-ruby hover:bg-ruby-hover text-white text-sm font-bold shadow-ruby-sm active:scale-[0.99] transition-all"

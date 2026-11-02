@@ -8,14 +8,14 @@
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Zero%20Cloud%20Uploads-emerald?style=for-the-badge&logo=shield&logoColor=white)](https://browserconvert.github.io/)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline%20Ready-0052CC?style=for-the-badge&logo=pwa&logoColor=white)](https://browserconvert.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
-[![Ko-fi](https://img.shields.io/badge/Support-Kishara%20on%20Ko--fi-CB2957?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/kishara)
+[![Support](https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-CB2957?style=for-the-badge&logo=gumroad&logoColor=white)](https://kisharadilshan.gumroad.com/coffee)
 
 <p align="center">
   <b>Convert Videos, Audio, Images, Apple HEIC, PDF, Word &amp; Spreadsheets completely inside your web browser.</b><br/>
   Zero server uploads • Unlimited file size • Native CPU/GPU WebAssembly speed • Total privacy.
 </p>
 
-[**Launch BrowserConvert**](https://browserconvert.github.io/) • [**Support on Ko-fi**](https://ko-fi.com/kishara) • [**Report Issue**](https://github.com/browserconvert/browserconvert.github.io/issues)
+[**Launch BrowserConvert**](https://browserconvert.github.io/) • [**Support the Developer**](https://kisharadilshan.gumroad.com/coffee) • [**Report Issue**](https://github.com/browserconvert/browserconvert.github.io/issues)
 
 </div>
 
@@ -162,7 +162,7 @@ The repository includes automated CI/CD via `.github/workflows/deploy.yml`:
 
 BrowserConvert is free, open-source, and dedicated to online privacy and client-side web computing. If this tool saves you time, bandwidth, or subscription costs, consider supporting development:
 
-[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Kishara-CB2957?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/kishara)
+[![Support the Developer](https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-CB2957?style=for-the-badge&logo=gumroad&logoColor=white)](https://kisharadilshan.gumroad.com/coffee)
 
 ---
 
